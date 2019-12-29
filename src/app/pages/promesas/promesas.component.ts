@@ -9,24 +9,10 @@ export class PromesasComponent implements OnInit {
 
   constructor() {
 
-
-
-    // primera forma de llamar a la promesa
-    // promesa.then(
-    //   () => console.log('Termino!'),
-    //   () => console.log('Error')
-    // );
-
-    // segunda forma promesa
-    // promesa.then(
-    //   // () => console.log('Termino!') sin parametro menaje...OK del resolve
-    //   mensaje => console.log('Termino!', mensaje)
-    // ).catch(error => console.error('error en la prmesa', error));
-
     this.contarTres().then(
-      mensaje => console.log('Termino!', mensaje)
-    ).catch(error => console.error('error en la prmesa', error));
-
+      () => console.log('Termino')
+    )
+    .catch( error => console.error('Error en la promesa', error ));
 
   }
 
@@ -35,22 +21,22 @@ export class PromesasComponent implements OnInit {
 
   contarTres(): Promise<boolean> {
 
-    return new Promise((resolve, reject) => {
+
+    return new Promise<boolean>( (resolve, reject) => {
 
       let contador = 0;
 
-      let intervalo = setInterval(() => {
+      const intervalo = setInterval( () => {
 
         contador += 1;
-        console.log(contador);
+        console.log( contador );
 
-        if (contador === 3) {
+        if ( contador === 3 ) {
           resolve(true);
-          // reject('dio error');
           clearInterval(intervalo);
         }
 
-      }, 1000);
+      }, 1000 );
 
     });
 

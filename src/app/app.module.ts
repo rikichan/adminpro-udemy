@@ -1,36 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// temporal
-import { FormsModule } from "@angular/forms";
-
 // Rutas
 import { APP_ROUTES } from './app.routes';
 
-// Modules
-import { PagesModule } from './pages/pages.module';
+// Modulos
+// import { PagesModule } from './pages/pages.module'; // LazyLoad
 
-// Services
+// temporal
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Servicios
 import { ServiceModule } from './services/service.module';
 
-// Components
+// Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-
+import { PagesComponent } from './pages/pages.component'; // LazyLoad
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PagesComponent // LazyLoad
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule,
+    // PagesModule,
     FormsModule,
-    ServiceModule
+    ReactiveFormsModule,
+    ServiceModule,
+    SharedModule // LazyLoad, lo utiliza el pagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

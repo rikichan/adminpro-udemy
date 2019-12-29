@@ -15,8 +15,6 @@ export class ProgressComponent implements OnInit {
   ngOnInit() {
   }
 
-  // actualizar(event:number){
 
-  // }
 
 }

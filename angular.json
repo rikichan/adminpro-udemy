@@ -104,11 +104,6 @@
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "adminpro:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "adminpro:serve:production"
-            }
           }
         },
         "lint": {

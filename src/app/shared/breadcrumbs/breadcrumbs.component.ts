@@ -12,24 +12,25 @@ export class BreadcrumbsComponent implements OnInit {
 
   titulo: string;
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private title: Title,
-    private meta:Meta) {
+    private meta: Meta) {
 
-    this.getDataRoute().subscribe(data => {
-      console.log(data);
-      this.titulo = data.titulo;
-      this.title.setTitle(this.titulo);
+    this.getDataRoute()
+      .subscribe(data => {
+        this.titulo = data.titulo;
+        this.title.setTitle(this.titulo);
 
-const metaTag: MetaDefinition={
-  name:'description',
-  content: this.titulo
-};
+        const metaTag: MetaDefinition = {
+          name: 'description',
+          content: this.titulo
+        };
 
-this.meta.updateTag(metaTag);
+        this.meta.updateTag(metaTag);
 
 
-    })
+      });
+
   }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ this.meta.updateTag(metaTag);
       filter(evento => evento instanceof ActivationEnd),
       filter((evento: ActivationEnd) => evento.snapshot.firstChild === null),
       map((evento: ActivationEnd) => evento.snapshot.data)
-    )
+    );
   }
 
 }

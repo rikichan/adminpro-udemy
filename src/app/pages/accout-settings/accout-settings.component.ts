@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
-// services
 import { SettingsService } from '../../services/service.index';
 
 @Component({
@@ -10,34 +10,28 @@ import { SettingsService } from '../../services/service.index';
 })
 export class AccoutSettingsComponent implements OnInit {
 
-  constructor(
-    public _ajustes: SettingsService) { }
+  constructor( public _ajustes: SettingsService ) { }
 
   ngOnInit() {
-
     this.colocarCheck();
   }
 
-  cambiarColor(tema: string, link: any) {
+  cambiarColor( tema: string, link: any ) {
 
-    this.aplicarCheck(link);
-    // console.log(tema);
+    this.aplicarCheck( link );
 
-    this._ajustes.aplicarTema(tema);
-
+    this._ajustes.aplicarTema( tema );
 
   }
 
-  aplicarCheck(link: any) {
+  aplicarCheck( link: any ) {
 
     let selectores: any = document.getElementsByClassName('selector');
 
-    for (let ref of selectores) {
-      // vanilla JS, se rmueve la clase seleccionada
+    for ( let ref of selectores ) {
       ref.classList.remove('working');
     }
 
-    //se agrega la clase al link (referencia) seleccionado
     link.classList.add('working');
 
   }
@@ -48,14 +42,11 @@ export class AccoutSettingsComponent implements OnInit {
 
     let tema = this._ajustes.ajustes.tema;
 
-    for (let ref of selectores) {
-
-      if (ref.getAttribute('data-theme') === tema) {
-
+    for ( let ref of selectores ) {
+      if ( ref.getAttribute('data-theme') === tema ) {
         ref.classList.add('working');
         break;
       }
-
     }
 
   }

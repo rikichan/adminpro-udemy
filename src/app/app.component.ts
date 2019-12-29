@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// services
+
 import { SettingsService } from './services/service.index';
 
 @Component({
@@ -8,12 +8,7 @@ import { SettingsService } from './services/service.index';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'adminpro';
 
-constructor(public _ajustes: SettingsService){
-  
-}
+  constructor( public _ajustes: SettingsService ) {}
 
 }
-
-

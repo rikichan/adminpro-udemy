@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Graficas1Component implements OnInit {
 
-   graficos: any = {
+
+  graficos: any = {
     'grafico1': {
       'labels': ['Con Frijoles', 'Con Natilla', 'Con tocino'],
       'data':  [24, 30, 46],
